@@ -1,5 +1,5 @@
 {
-    "name": "casper-rotkap",
+    "name": "casper",
     "description": "A clean, minimal default theme for the Ghost publishing platform",
     "demo": "https://demo.ghost.io",
     "version": "5.9.0",
@@ -139,16 +139,6 @@
                 "default": "Classic",
                 "group": "homepage"
             },
-            "show_projects": {
-                "type": "boolean",
-                "default": false,
-                "group": "homepage"
-            },
-            "show_blog": {
-                "type": "boolean",
-                "default": false,
-                "group": "homepage"
-            },
             "color_scheme": {
                 "type": "select",
                 "options": [
@@ -157,11 +147,6 @@
                     "Auto"
                 ],
                 "default": "Light"
-            },
-            "excluded_topics": {
-                "type": "text",
-                "default": "art, digital, featured-art",
-                "group": "blog"
             },
             "post_image_style": {
                 "type": "select",
@@ -176,7 +161,7 @@
             },
             "email_signup_text": {
                 "type": "text",
-                "default": "Subscribe to the newsletter.",
+                "default": "Sign up for more like this.",
                 "group": "post"
             },
             "show_recent_posts_footer": {
