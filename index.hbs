@@ -39,14 +39,54 @@ into the {body} of the default.hbs template --}}
 
 {{!-- The main content area --}}
 <main id="site-main" class="site-main outer">
+<div class="front-banner">
+  {{#get "posts" limit="2" filter="tags:front"}}
+    {{#foreach posts}}
+        <article class="post-card {{#has number="nth:3"}}post-card-large{{/has}} {{post_class}}">
+            <a class="post-card-link" href="{{url}}">
+                {{#if feature_image}}
+                <img
+                 srcset="{{img_url feature_image size="s"}} 300w,
+                        {{img_url feature_image size="m"}} 600w,
+                        {{img_url feature_image size="l"}} 1200w,
+                        {{img_url feature_image size="xl"}} 2000w,
+                        {{img_url feature_image}}"
+                 sizes="(min-width: 701px) {{#has number="nth:3"}}94vw{{else}}calc(94vw / 2){{/has}}, 88vw"
+                 src="{{img_url feature_image size="l"}}"
+                 alt="{{title}}"
+            >
+                {{/if}}
+            </a>
+        </article>
+    {{/foreach}}
+  {{/get}}
+</div>
 <div class="inner posts">
 
-    <div class="post-feed">
-        {{#foreach posts}}
-            {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
-            {{> "post-card"}}
-        {{/foreach}}
-    </div>
+    <!-- Featured Projects-->
+{{#if @custom.show_projects}}
+<h2 class="site-title">Projects</h2>
+<div limit="3" class="project-feed">
+{{#get "posts" filter='featured:true'}}
+    {{#foreach posts}}
+        {{> "post-card"}}
+    {{/foreach}}
+  {{/get}}
+</div>
+{{/if}}
+
+<!-- Recent Blog Posts-->
+{{#if @custom.show_blog}}
+<h2 class="site-title">Blog</h2>
+<div limit="5" class="blog-feed">
+{{#get "posts" filter='tags:blog'}}
+    {{#foreach posts}}
+        {{> "post-card"}}
+    {{/foreach}}
+  {{/get}}
+</div>
+{{/if}}
+    
 
     {{pagination}}
 
