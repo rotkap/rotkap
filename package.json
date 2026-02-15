@@ -96,7 +96,7 @@
                     "Logo in the middle",
                     "Stacked"
                 ],
-                "default": "Logo on cover"
+                "default": "Logo in the middle"
             },
             "title_font": {
                 "type": "select",
@@ -116,7 +116,7 @@
             },
             "show_publication_cover": {
                 "type": "boolean",
-                "default": true,
+                "default": false,
                 "group": "homepage"
             },
             "header_style": {
@@ -141,12 +141,12 @@
             },
             "show_projects": {
                 "type": "boolean",
-                "default": false,
+                "default": true,
                 "group": "homepage"
             },
             "show_blog": {
                 "type": "boolean",
-                "default": false,
+                "default": true,
                 "group": "homepage"
             },
             "color_scheme": {
