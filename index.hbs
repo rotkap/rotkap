@@ -86,9 +86,25 @@ into the {body} of the default.hbs template --}}
   {{/get}}
 </div>
 {{/if}}
-    
 
     {{pagination}}
+
+{{!-- A signup call to action is displayed here, unless viewed as a logged-in member --}}
+{{#if @site.members_enabled}}
+{{#unless @member}}
+{{#unless @site.comments_enabled}}
+    <section class="footer-cta outer">
+        <div class="inner">
+            {{#if @custom.email_signup_text}}<h4 class="footer-cta-title">{{@custom.email_signup_text}}</h4>{{/if}}
+            <a class="footer-cta-button" href="#/portal" data-portal>
+                <div class="footer-cta-input">Enter your email</div>
+                <span>Subscribe</span>
+            </a>
+        </div>
+    </section>
+{{/unless}}
+{{/unless}}
+{{/if}}
 
 </div>
 </main>
