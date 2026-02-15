@@ -12,10 +12,13 @@
     {{!-- Preload scripts --}}
     <link rel="preload" as="style" href="{{asset "built/screen.css"}}" />
     <link rel="preload" as="script" href="{{asset "built/casper.js"}}" />
+    <script src="https://unpkg.com/flexmasonry/dist/flexmasonry.js"></script>
+     <link rel="stylesheet" href="https://unpkg.com/flexmasonry/dist/flexmasonry.css">
 
     {{!-- Theme assets - use the {asset} helper to reference styles & scripts,
     this will take care of caching and cache-busting automatically --}}
     <link rel="stylesheet" type="text/css" href="{{asset "built/screen.css"}}" />
+      <link rel="stylesheet" type="text/css" href="{{asset "built/custom.css"}}" />
 
     {{!-- This tag outputs all your advanced SEO meta, structured data, and other important settings,
     it should always be the last tag before the closing head tag --}}
@@ -110,6 +113,17 @@ $(document).ready(function () {
     });
     // FitVids - Makes video embeds responsive
     $(".gh-content").fitVids();
+
+    FlexMasonry.init('.grid', {
+        responsive: true,
+        breakpointCols: {
+        'min-width: 1500px': 3,
+        'min-width: 1200px': 2,
+        'min-width: 992px': 2,
+        'min-width: 768px': 2,
+        'min-width: 576px': 1,
+        },
+    });
 });
 </script>
 

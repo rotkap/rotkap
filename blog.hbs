@@ -1,0 +1,36 @@
+{{!< default}}
+{{!-- The tag above means - insert everything in this file into the {body} of the default.hbs template --}}
+
+<main id="site-main" class="site-main outer page-blog">
+<div class="inner posts">
+    <div class="post-feed">
+        {{#get "posts" filter="tags:blog"}}
+            {{#foreach posts}}
+                {{> "post-card"}}
+            {{/foreach}}
+        {{/get}}
+
+    </div>
+
+    {{pagination}}
+
+        <aside class="gh-sidebar">
+
+                {{#get "tags" include="count.posts" filter="slug:-[{{@custom.excluded_topics}}]" limit="15" order="count.posts desc" as |topic|}}
+                    <section class="gh-section">
+                        <h3 class="gh-section-title">Topics</h3>
+                        <!--{{#if @custom.excluded_topics}}{{/if}}-->
+
+                        <div class="gh-topic">
+                            {{#foreach topic}}
+                                <a class="gh-topic-item" href="{{url}}">
+                                    <h3 class="gh-topic-name">{{name}} ( {{count.posts}} )</h3>
+                                </a>
+                            {{/foreach}}
+                        </div>
+                    </section>
+                {{/get}}
+            </aside>
+    
+</div>
+</main>
