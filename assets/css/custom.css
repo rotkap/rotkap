@@ -124,8 +124,8 @@ h1, h2, h3, h4, h5, h6, .site-title {
   position: relative;
 }
 
-.blog-feed {
-  margin-bottom: 15%;
+.home-template .footer-cta {
+  margin-top: 15%;
 }
 
 .footer-cta-title {
