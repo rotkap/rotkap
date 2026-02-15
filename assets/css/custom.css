@@ -100,9 +100,57 @@ h1, h2, h3, h4, h5, h6, .site-title {
     display: none;
   }
 
+  @media (max-width: 767px) {
+  .site-footer .inner {
+    max-width: 500px;
+    grid-gap: 0;
+    text-align: center;
+    padding: 0 20px;
+  }
+
+  .site-footer .copyright, .site-footer .copyright a, .site-footer nav li a,
+  .gh-powered-by a {
+    color: #000;
+    font-size: 1.5rem;
+  }
+}
+
+.site-footer a:hover {
+    color: #000 !important;
+  }
+
 /*front page*/
 .post-card-large .post-card-image, .post-card-image-link img{
   position: relative;
+}
+
+@media (max-width: 1000px) {
+  .post-card-image-link::after {
+    padding-bottom: 0%;
+  }
+  
+  .project-feed .post-card {
+    margin-bottom: 20%;
+  }
+  
+  .post-card.no-image {
+    margin-bottom: 2%;
+  }
+  
+  .site-footer.inner {
+    padding: 0 50px;
+  }
+  
+  h2.site-title {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .site-description {
+    font-size: 7rem !important;
+    padding: 0 50px;
+  }
 }
 
 /*post pages*/
