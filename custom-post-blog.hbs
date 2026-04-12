@@ -112,7 +112,7 @@ into the {body} tag of the default.hbs template --}}
   const bskyPostId = bskyId.lastIndexOf('/');
 
   document.getElementById('masto-link').setAttribute('href', 'https://mastodon.social/@blog@rotkap.com/' + fediId);
-  document.getElementById('masto-link').setAttribute('href', 'https://mastodon.social/@blog@rotkap.com/' + bskyId.substring(bskyPostId + 1));
+  document.getElementById('bsky-link').setAttribute('href', 'https://bsky.app/profile/did:plc:e4tv6nh6ntv6dpc4varpopri/post/' + bskyId.substring(bskyPostId + 1));
 
   function escapeHtml(unsafe) {
     return unsafe
