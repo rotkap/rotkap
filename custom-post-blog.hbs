@@ -95,7 +95,9 @@ into the {body} tag of the default.hbs template --}}
     <!--Fedi comments-->
     <section id="comments" class="article-comments gh-canvas gh-content">
         <h2>Comments</h2>
-        <p>With an account on mastodon.social, you can respond to this <a id="masto-link" href="">post</a> directly. If you have an account on another Mastodon instance or platform on the fediverse, you can copy/paste the link into your platform's search.</p> 
+        <p>With an account on mastodon.social, you can respond to this <a id="masto-link" href="">post</a> directly. 
+        If you have an account on another Mastodon instance or platform on the fediverse, you can copy/paste the link into your platform's search.</p> 
+        <p>If you're on BlueSky, comment on this <a id="bsky-link" href="">post</a></p>
         <p>Known non-private replies are displayed below.</p>
 
         <p id="mastodon-comments-list"><button id="load-comment">Load comments</button></p>
@@ -107,8 +109,10 @@ into the {body} tag of the default.hbs template --}}
        <script type="text/javascript">
   fediId;
   bskyId;
+  const bskyPostId = bskyId.lastIndexOf('/');
 
-  document.getElementById('masto-link').setAttribute('href', 'https://mastodon.social/@vinz@rotkap.com/' + fediId);
+  document.getElementById('masto-link').setAttribute('href', 'https://mastodon.social/@blog@rotkap.com/' + fediId);
+  document.getElementById('masto-link').setAttribute('href', 'https://mastodon.social/@blog@rotkap.com/' + bskyId.substring(bskyPostId + 1));
 
   function escapeHtml(unsafe) {
     return unsafe
@@ -159,7 +163,7 @@ into the {body} tag of the default.hbs template --}}
       : "mastodon.social";
 
     const isNestedReply = status.in_reply_to_id !== fediId;
-    const op = status.account.acct === "@vinz@rotkap.com";
+    const op = status.account.acct === "@blog@rotkap.com";
 
     status.content = emojify(status.content, status.emojis);
 
